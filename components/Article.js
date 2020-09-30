@@ -88,6 +88,14 @@ const data = [{
   }
 ];
 
+data.push({
+  title: "Paco's Awesome Adventure",
+  date: "September 30th, 2020",
+  firstParagraph: "I woke up to pee. Going outside I realized I had to defend. Commence bark",
+  secondParagraph: "Treat sound not important only defend. I will bark.",
+  thirdParagraph: "Ok...treat maybe important"
+})
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -147,16 +155,25 @@ function articleMaker(articleObj) {
    */
   return article
 }
-console.log(articleMaker(data))
-/* Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
-*/
-const articleHTML = document.querySelector('.articles')
-data.forEach((articleElemnt) => {
-  // const articleObj = articleElemnt.articleObj
-  const article = articleMaker(articleElemnt)
-  articleHTML.appendChild(article)
-})
+
 /* Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+//    Moved Step 5 above step 4 so it would run
+data.push({
+  title: "Paco's Awesome Adventure",
+  date: "September 30th, 2020",
+  firstParagraph: "I woke up to pee. Going outside I realized I had to defend. Commence bark",
+  secondParagraph: "Treat sound not important only defend. I will bark.",
+  thirdParagraph: "Ok...treat maybe important"
+})
+
+/* Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+*/
+const articleHTML = document.querySelector('.articles') // grab div.article from the HTML
+
+data.forEach((articleElemnt) => {
+  const article = articleMaker(articleElemnt)
+  articleHTML.appendChild(article)
+})
