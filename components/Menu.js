@@ -50,7 +50,6 @@ function menuMaker(arrMenuItems) {
   /*
     Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on div.menu (your div with a 'menu' class).
   */
-  debugger
   menu.classList.add('menu--open')
 
   menuButton.addEventListener('click', () => {

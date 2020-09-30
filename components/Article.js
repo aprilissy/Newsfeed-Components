@@ -154,12 +154,19 @@ function articleMaker(articleObj) {
 //    Moved Step 5 above step 4 so it would run
 data.push({
   title: "Paco's Awesome Adventure",
-  date: "September 30th, 2020",
+  date: "Every Single Day",
   firstParagraph: "I woke up to pee. Going outside I realized I had to defend. Commence bark",
   secondParagraph: "Treat sound not important only defend. I will bark.",
   thirdParagraph: "Ok...treat maybe important"
 })
 
+data.push({
+  title: "Monkey's Morning Protec",
+  date: "Every Single Day",
+  firstParagraph: "Human says up. I sleep. Human insist. I stritch",
+  secondParagraph: "Human says potty, but must stritch. Then must consider move. Perhaps not. Floof is too near.",
+  thirdParagraph: "Human moves floof. I will pee... No pee! Alert! Protec! Battle Screetch!!!!"
+})
 /* Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
   to create a div.article element and append it to the DOM inside div.articles (see index.html).
 */
