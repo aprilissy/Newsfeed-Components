@@ -1,8 +1,7 @@
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
-const data = [
-  {
+const data = [{
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
@@ -93,24 +92,87 @@ const data = [
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
+*/
+function articleMaker(articleObj) {
 
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+  // Instantiate elements
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const paragraphOne = document.createElement('p')
+  const paragraphTwo = document.createElement('p')
+  const paragraphThree = document.createElement('p')
+  const expandButton = document.createElement('span')
 
-    {three separate paragraph elements}
+  // set element structure
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(paragraphOne)
+  article.appendChild(paragraphTwo)
+  article.appendChild(paragraphThree)
+  article.appendChild(expandButton)
 
-    <span class="expandButton">+</span>
-  </div>
+  // add class names
+  article.classList.add('article')
+  date.classList.add('date')
+  expandButton.classList.add('expandButton')
 
-  Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article.
+  /*
+   <div class="article">
+     <h2>{title of the article}</h2>
+     <p class="date">{date of the article}</p>
 
-  Step 3: Don't forget to return something from your function!
+     {three separate paragraph elements}
 
-  Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+     <span class="expandButton">+</span>
+   </div>
+   */
 
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  // set text content
+  title.textContent = articleObj.title
+  date.textContent = articleObj.date
+  paragraphOne.textContent = articleObj.firstParagraph
+  paragraphTwo.textContent = articleObj.secondParagraph
+  paragraphThree.textContent = articleObj.thirdParagraph
+  expandButton.textContent = '+'
+
+  /* Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
+   This listener should toggle the class 'article-open' on div.article.
+   */
+  expandButton.addEventListener('click', () => {
+    article.classList.toggle('article-open')
+  })
+
+  /* Step 3: Don't forget to return something from your function!
+   */
+  return article
+}
+
+/* Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+//    Moved Step 5 above step 4 so it would run
+data.push({
+  title: "Paco's Awesome Adventure",
+  date: "Every Single Day",
+  firstParagraph: "I woke up to pee. Going outside I realized I had to defend. Commence bark",
+  secondParagraph: "Treat sound not important only defend. I will bark.",
+  thirdParagraph: "Ok...treat maybe important"
+})
+
+data.push({
+  title: "Monkey's Morning Protec",
+  date: "Every Single Day",
+  firstParagraph: "Human says up. I sleep. Human insist. I stritch",
+  secondParagraph: "Human says potty, but must stritch. Then must consider move. Perhaps not. Floof is too near.",
+  thirdParagraph: "Human moves floof. I will pee... No pee! Alert! Protec! Battle Screetch!!!!"
+})
+/* Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+*/
+const articleHTML = document.querySelector('.articles') // grab div.article from the HTML
+
+data.forEach((articleElemnt) => {
+  const article = articleMaker(articleElemnt)
+  articleHTML.appendChild(article)
+})
