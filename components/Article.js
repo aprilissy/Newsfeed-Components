@@ -88,14 +88,6 @@ const data = [{
   }
 ];
 
-data.push({
-  title: "Paco's Awesome Adventure",
-  date: "September 30th, 2020",
-  firstParagraph: "I woke up to pee. Going outside I realized I had to defend. Commence bark",
-  secondParagraph: "Treat sound not important only defend. I will bark.",
-  thirdParagraph: "Ok...treat maybe important"
-})
-
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
