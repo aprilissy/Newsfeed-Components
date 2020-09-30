@@ -38,24 +38,39 @@ function menuMaker(arrMenuItems) {
     Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
     Add those items to the <ul>
   */
-  arrMenuItems.forEach(liItem => {
+  arrMenuItems.forEach(arrMenuItems => {
     const li = document.createElement('li')
-    li.textContent = liItem
-    liItem.appendChild(li)
+    li.textContent = arrMenuItems
+    list.appendChild(li)
   })
   /*
     Step 3: Still inside your function, select from the DOM the menu button (the element with a class of 'menu-button').
   */
-  const menuButton =
-    /*
-      Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on div.menu (your div with a 'menu' class).
-    */
+  const menuButton = document.querySelector('.menu-button')
+  /*
+    Step 4: Add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on div.menu (your div with a 'menu' class).
+  */
+  debugger
+  menu.classList.add('menu--open')
 
-    /*
-      Step 5: Don't forget to return your div.menu.
-    */
-    return null
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('menu--open')
+  })
+
+  /*
+    Step 5: Don't forget to return your div.menu.
+  */
+  return menu
 }
 /*
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+// acccess the header
+const header = document.querySelector('.header')
+
+// run the function using the array
+const finalMenu = menuMaker(menuItems)
+
+// append to the header
+header.appendChild(finalMenu)
